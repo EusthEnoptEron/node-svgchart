@@ -1,6 +1,6 @@
 {
 	"author": "Simon Meer"
-	, "name": "node-anychart"
+	, "name": "node-chart"
 	, "version": "0.0.1"
 	, "private": true
 	, "dependencies": {
