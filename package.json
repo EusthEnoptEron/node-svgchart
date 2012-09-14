@@ -1,0 +1,18 @@
+{
+	"author": "Simon Meer"
+	, "name": "node-anychart"
+	, "version": "0.0.1"
+	, "private": true
+	, "dependencies": {
+		"jsdom": "0.2.15",
+		"node-imagemagick": "0.1.7"
+	}
+	, 
+	"devDependencies": {
+		"mocha": "latest"
+	}
+	,
+	"engines": {
+		"node": "0.8.9"
+	}
+}
