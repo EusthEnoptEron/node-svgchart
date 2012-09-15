@@ -5,7 +5,7 @@
 	, "private": true
 	, "dependencies": {
 		"jsdom": "0.2.15",
-		"node-imagemagick": "0.1.7",
+		"node-imagemagick": ">=0.1.7",
 		"contextify": "0.1.3",
 		"underscore": ">= 0.1"
 	}

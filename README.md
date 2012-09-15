@@ -8,3 +8,8 @@ Requirements
 To get it up and running, there are some requirements to fulfill.
 
 * librsvg (presence of a "rsvg" command)
+
+
+Compatibility
+=============
+* AnyChart 6.0.10
