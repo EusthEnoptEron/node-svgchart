@@ -5,7 +5,9 @@
 	, "private": true
 	, "dependencies": {
 		"jsdom": "0.2.15",
-		"node-imagemagick": "0.1.7"
+		"node-imagemagick": "0.1.7",
+		"contextify": "0.1.3",
+		"underscore": ">= 0.1"
 	}
 	, 
 	"devDependencies": {
@@ -14,5 +16,7 @@
 	,
 	"engines": {
 		"node": "0.8.9"
-	}
+	},
+	"main": "./lib/node-chart",
+	"directories": ["./lib"]
 }
