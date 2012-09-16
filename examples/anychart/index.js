@@ -12,16 +12,18 @@ fs.readdir('xml', function(err, files) {
 
 	chart
 		.require(["AnyChart.js", "AnyChartHTML5.js"])
-		.setup(function(e, window) {
+		.setup(function(e, callback) {
 			if(!ch) {
-				window.AnyChart.renderingType = window.anychart.RenderingType.SVG_ONLY;
-				ch = new window.AnyChart("chart");
+				e.window.AnyChart.renderingType = e.window.anychart.RenderingType.SVG_ONLY;
+				ch = new e.window.AnyChart("chart");
 				ch.setData(configs[e.job]);
 				ch.write('chart');
 			} else {
 				ch.setData(configs[e.job]);
 				ch.refresh();
 			}
+
+			callback();
 		})
 		.on("svg", function(e) {
 			fs.writeFile("svg/" + e.job + ".svg", e.svg);
