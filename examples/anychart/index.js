@@ -1,22 +1,27 @@
-var chart = require("../lib/node-svgchart")
+var chart = require("../../lib/node-svgchart")
 	,fs   = require("fs");
 
+var configs = {};
 
-fs.readDir('xml', function(err, files) {
+fs.readdir('xml', function(err, files) {
 	if(err) {
 		console.log("Something went wrong.", err);
 		return;
 	}
-	var chartData;
+	var ch = null;
 
 	chart
 		.require(["AnyChart.js", "AnyChartHTML5.js"])
-		.setup(function() {
-			window.AnyChart.renderingType = window.anychart.RenderingType.SVG_ONLY;
-		 	var chart = new window.AnyChart();
-			//Open XML file
-			chart.setData(chartData);
-			chart.write('chart');
+		.setup(function(e, window) {
+			if(!ch) {
+				window.AnyChart.renderingType = window.anychart.RenderingType.SVG_ONLY;
+				ch = new window.AnyChart("chart");
+				ch.setData(configs[e.job]);
+				ch.write('chart');
+			} else {
+				ch.setData(configs[e.job]);
+				ch.refresh();
+			}
 		})
 		.on("svg", function(e) {
 			fs.writeFile("svg/" + e.job + ".svg", e.svg);
@@ -26,9 +31,13 @@ fs.readDir('xml', function(err, files) {
 		});
 
 	files.forEach(function(file) {
-		fs.readFile("xml/" + file, function() {
-			chart.create(file.replace(/\.\w+$/, '')
-						, {width: 500});
+		fs.readFile("xml/" + file, function(err, xml) {
+			var job = file.replace(/\.\w+$/, '');
+
+			configs[job] = xml;
+			if(!err) {
+				chart.create(job, {width: 500});
+			}
 		});
 	});
 	
