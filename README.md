@@ -21,11 +21,12 @@ var chart = require("node-svgchart");
 
 chart
     .require("path/to/my/chart/lib.js")
-    .setup(function(window) {
+    .setup(function(e, callback) {
     	//Setup chart using your library. Write to #chart.
-    	//Note: The global object is still "global", so explicitly access "window". 
+    	//Note: The global object is still "global", so explicitly access "e.window".
+        //IMPORTANT: You have to call the callback to make it continue. 
     })
-    .generate({
+    .create({
     	//Options that will be passed to rsvg
     	width: 500
     }, function(err, image) {

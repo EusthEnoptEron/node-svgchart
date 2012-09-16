@@ -20,12 +20,14 @@ fs.readdir('xml', function(err, files) {
 				ch.write('chart');
 			} else {
 				ch.setData(configs[e.job]);
-				ch.refresh();
+				//ch.refresh();
 			}
 
 			callback();
+
 		})
 		.on("svg", function(e) {
+			console.log("got svg");
 			fs.writeFile("svg/" + e.job + ".svg", e.svg);
 		})
 		.on("image", function(e) {
