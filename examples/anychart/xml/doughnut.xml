@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<anychart>
+  <settings>
+    <animation enabled="True" />
+  </settings>
+  <charts>
+    <chart plot_type="Doughnut">
+      <data_plot_settings enable_3d_mode="false">
+        <pie_series>
+          <tooltip_settings enabled="true">
+            <format>
+Value: {%Value}
+Percent: {%YPercentOfSeries}{numDecimals: 2}%
+</format>
+          </tooltip_settings>
+          <label_settings enabled="true">
+            <background enabled="false" />
+            <position anchor="Center" valign="Center" halign="Center" padding="0" />
+            <font color="White">
+              <effects>
+                <drop_shadow enabled="true" distance="2" opacity="0.5" blur_x="2" blur_y="2" />
+              </effects>
+            </font>
+            <format>{%YPercentOfSeries}{numDecimals:1}%</format>
+          </label_settings>
+        </pie_series>
+      </data_plot_settings>
+      <data>
+        <series name="Series 1" type="Pie">
+          <point name="P1" y="793166" />
+          <point name="P2" y="726630" />
+          <point name="P3" y="168662" />
+          <point name="P4" y="71662" color="Yellow" />
+        </series>
+        <series name="Series 2" type="Pie">
+          <point name="P1" y="798166" />
+          <point name="P2" y="721630" />
+          <point name="P3" y="148662" />
+          <point name="P4" y="78662" color="Yellow" />
+        </series>
+        <series name="Series 3" type="Pie">
+          <point name="P1" y="637166" />
+          <point name="P2" y="721630" />
+          <point name="P3" y="148662" />
+          <point name="P4" y="78662" color="Yellow" />
+        </series>
+      </data>
+      <chart_settings>
+        <title enabled="true" padding="20">
+          <text>Nested Doughnuts in 2D</text>
+        </title>
+        <legend enabled="true">
+          <title enabled="false" />
+        </legend>
+      </chart_settings>
+    </chart>
+  </charts>
+</anychart>
