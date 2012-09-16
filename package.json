@@ -1,6 +1,6 @@
 {
 	"author": "Simon Meer"
-	, "name": "node-chart"
+	, "name": "node-svgchart"
 	, "version": "0.0.1"
 	, "private": true
 	, "dependencies": {
@@ -18,6 +18,6 @@
 	"engines": {
 		"node": "0.8.9"
 	},
-	"main": "./lib/node-chart",
+	"main": "./lib/node-svgchart",
 	"directories": ["./lib"]
 }
