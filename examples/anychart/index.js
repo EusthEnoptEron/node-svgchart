@@ -27,18 +27,18 @@ fs.readdir('xml', function(err, files) {
 
 		})
 		.on("svg", function(e) {
-			console.log("got svg");
+			console.log(e.svg.length);
 			fs.writeFile("svg/" + e.job + ".svg", e.svg);
 		})
 		.on("image", function(e) {
-			e.stream.pipe(fs.createWriteStream("png/"+e.job+".png"));
-		});
+			fs.writeFile("png/" + e.job + ".png", e.buffer);
+		})
 
 	files.forEach(function(file) {
 		fs.readFile("xml/" + file, function(err, xml) {
 			var job = file.replace(/\.\w+$/, '');
 
-			configs[job] = xml;
+			configs[job] = xml.toString();
 			if(!err) {
 				chart.create(job, {width: 500});
 			}

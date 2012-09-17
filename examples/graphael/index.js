@@ -8,7 +8,7 @@ chart
 		fs.writeFile("svg/" + e.job + ".svg", e.svg);
 	})
 	.on("image", function(e) {
-		e.stream.pipe(fs.createWriteStream("png/"+e.job+".png"));
+		fs.writeFile("png/" + e.job + ".png", e.buffer);
 	})
 	.setup(function(e, callback) {
 	    var r = e.window.Raphael("chart", 640, 480);
