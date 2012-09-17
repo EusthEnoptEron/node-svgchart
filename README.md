@@ -15,6 +15,7 @@ Compatibility
 =============
 * AnyChart 6.0.10
 * gRaphaël (somewhat)
+* ico (somewhat)
 
 Usage
 =====
