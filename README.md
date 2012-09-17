@@ -2,6 +2,7 @@ Introduction
 ============
 node-svgchart aims to provide a general interface to generate charts on the server side without any need for an x-server or anything of the like.
 
+It's useful if you want to put dynamic charts on the frontend, yet play with them on the backend. E.g. to create reports, to let users with outdated browsers download it, etc.
 
 Requirements
 ============
@@ -34,3 +35,6 @@ chart
     	//image is a Readable Stream.
     });
 ```
+
+API
+===
