@@ -2580,7 +2580,6 @@ SVGElement.prototype = {
 	
 			// VML Renderer or useHTML within SVG
 			} else {
-				
 				bBox = wrapper.htmlGetBBox();
 				
 			}
@@ -3427,7 +3426,6 @@ SVGRenderer.prototype = {
 			centerImage;
 
 		if (path) {
-
 			obj = this.path(path);
 			// expando properties for use in animate and attr
 			extend(obj, {
@@ -3591,6 +3589,8 @@ SVGRenderer.prototype = {
 	 * @param {Number} height
 	 */
 	clipRect: function (x, y, width, height) {
+
+		console.log(x,y,width,height);
 		var wrapper,
 			id = PREFIX + idCounter++,
 
@@ -4744,7 +4744,7 @@ var VMLRendererExtension = { // inherit SVGRenderer
 	 * @param {Number} height
 	 */
 	clipRect: function (x, y, width, height) {
-
+		console.log("hey1");
 		// create a dummy element
 		var clipRect = this.createElement(),
 			isObj = isObject(x);
@@ -5343,6 +5343,7 @@ if (useCanVG) {
  * General renderer
  */
 Renderer = VMLRenderer || CanVGRenderer || SVGRenderer;
+
 /**
  * The Tick class
  */
@@ -7364,6 +7365,7 @@ Axis.prototype = {
 		var offsetLeft = options.offsetLeft || 0,
 			offsetRight = options.offsetRight || 0;
 
+
 		// basic values
 		// expose to use in Series object and navigator
 		axis.left = pick(options.left, chart.plotLeft + offsetLeft);
@@ -7372,6 +7374,7 @@ Axis.prototype = {
 		axis.height = pick(options.height, chart.plotHeight);
 		axis.bottom = chart.chartHeight - axis.height - axis.top;
 		axis.right = chart.chartWidth - axis.width - axis.left;
+
 		axis.len = mathMax(axis.horiz ? axis.width : axis.height, 0); // mathMax fixes #905
 	},
 
@@ -7673,7 +7676,6 @@ Axis.prototype = {
 
 				// Reorganize the indices
 				i = (i === tickPositions.length - 1) ? 0 : i + 1;
-
 				// linked axes need an extra check to find out if
 				if (!isLinked || (pos >= axis.min && pos <= axis.max)) {
 
@@ -10315,7 +10317,7 @@ Chart.prototype = {
 					);
 				}
 			} else if (align === 'left') {
-				if (!defined(optionsMarginLeft)) {
+				if (!defined(optionsMarginLeft)) {	
 					chart.plotLeft = mathMax(
 						chart.plotLeft,
 						legend.legendWidth + legendX + legendMargin + spacingLeft
@@ -10354,6 +10356,7 @@ Chart.prototype = {
 				axis.getOffset();
 			});
 		}
+
 		
 		if (!defined(optionsMarginLeft)) {
 			chart.plotLeft += axisOffset[3];
@@ -10522,8 +10525,11 @@ Chart.prototype = {
 			plotHeight,
 			plotBorderWidth;
 
+
 		chart.plotLeft = plotLeft = mathRound(chart.plotLeft);
+
 		chart.plotTop = plotTop = mathRound(chart.plotTop);
+
 		chart.plotWidth = plotWidth = mathRound(chartWidth - plotLeft - chart.marginRight);
 		chart.plotHeight = plotHeight = mathRound(chartHeight - plotTop - chart.marginBottom);
 
@@ -10573,6 +10579,7 @@ Chart.prototype = {
 		chart.marginRight = pick(chart.optionsMarginRight, spacingRight);
 		chart.marginBottom = pick(chart.optionsMarginBottom, spacingBottom);
 		chart.plotLeft = pick(chart.optionsMarginLeft, spacingLeft);
+
 		chart.axisOffset = [0, 0, 0, 0]; // top, right, bottom, left
 	},
 
@@ -12496,6 +12503,7 @@ Series.prototype = {
 			inverted = chart.inverted,
 			sharedClipKey;
 
+
 		// Animation option is set to true
 		if (animation && !isObject(animation)) {
 			animation = defaultPlotOptions[series.type].animation;
@@ -13086,7 +13094,6 @@ Series.prototype = {
 				segmentPath.push.apply(segmentPath, series.getPointSpline(segment, point, i));
 
 			} else {
-
 				// moveTo or lineTo
 				segmentPath.push(i ? L : M);
 
@@ -13152,7 +13159,7 @@ Series.prototype = {
 			dashStyle =  options.dashStyle,
 			attribs,
 			graphPath = this.getGraphPath();
-			
+
 
 		// draw the graph
 		if (graph) {
@@ -13603,13 +13610,11 @@ var AreaSeries = extendClass(Series, {
 	 * This path is pushed to the series.areaPath property.
 	 */
 	getSegmentPath: function (segment) {
-		
 		var segmentPath = Series.prototype.getSegmentPath.call(this, segment), // call base method
 			areaSegmentPath = [].concat(segmentPath), // work on a copy for the area path
 			i,
 			options = this.options,
 			segLength = segmentPath.length;
-		
 		if (segLength === 3) { // for animation from 1 to two points
 			areaSegmentPath.push(L, segmentPath[1], segmentPath[2]);
 		}

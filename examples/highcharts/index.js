@@ -10,6 +10,8 @@ chart
 })
 .on("image", function(e) {
 	fs.writeFile("png/" + e.job + ".png", e.buffer);
+    chart.stop();
+    ch = null;
 })
 .setSize(600, 400)
 .setup(function(e, callback) {
@@ -61,6 +63,7 @@ chart
                 }
             },
             series: [{
+                animation: false,
                 name: 'USA',
                 data: [null, null, null, null, null, 6 , 11, 32, 110, 235, 369, 640,
                     1005, 1436, 2063, 3057, 4618, 6444, 9822, 15468, 20434, 24126,
@@ -70,6 +73,7 @@ chart
                     22380, 21004, 17287, 14747, 13076, 12555, 12144, 11009, 10950,
                     10871, 10824, 10577, 10527, 10475, 10421, 10358, 10295, 10104 ]
             }, {
+                 animation: false,
                 name: 'USSR/Russia',
                 data: [null, null, null, null, null, null, null , null , null ,null,
                 5, 25, 50, 120, 150, 200, 426, 660, 869, 1060, 1605, 2471, 3322,
@@ -80,7 +84,7 @@ chart
                 21000, 20000, 19000, 18000, 18000, 17000, 16000]
             }]
         });
-
-	callback();
+    
+    callback();
 })
 .create("line", {width: 480});
