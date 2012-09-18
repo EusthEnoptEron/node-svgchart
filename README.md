@@ -8,8 +8,7 @@ Requirements
 ============
 To get it up and running, there are some requirements to fulfill.
 
-* librsvg (presence of a "rsvg" command)
-* ImageMagick (unless you tell node-svgchart to guess the font metrics) 
+* ImageMagick
 
 Compatibility
 =============
@@ -33,9 +32,15 @@ chart
     	//Options that will be passed to rsvg
     	width: 500
     }, function(err, image) {
-    	//image is a Readable Stream.
+    	//image is a buffer.
     });
 ```
 
 API
 ===
+
+setSafeMode(bool on)
+--------------------
+Turn safe mode on / off. If safe mode is off, the script code of your libraries will be rewritten to refrain from using "instanceof Array" because of context issues.
+
+If that causes problems, you can disable that behavior. However, you will then have to use "window.Array" to create your arrays.
