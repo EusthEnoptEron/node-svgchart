@@ -16,7 +16,7 @@ Compatibility
 * gRaphaël
 * ico
 * Highcharts (somewhat, be sure to disable animations)
-* amCharts
+* amCharts (unless you use a legend)
 
 Usage
 =====

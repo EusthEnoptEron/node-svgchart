@@ -12,15 +12,17 @@ fs.readdir('xml', function(err, files) {
 	chart
 		.require(["lib/AnyChart.js", "lib/AnyChartHTML5.js"])
 		.setup(function(e, callback) {
-			if(!ch) {
-				e.window.AnyChart.renderingType = e.window.anychart.RenderingType.SVG_ONLY;
-				ch = new e.window.AnyChart("chart");
-				ch.setData(configs[e.job]);
-				ch.write('chart');
-			} else {
-				ch.setData(configs[e.job]);
-				//ch.refresh();
+			e.window.AnyChart.renderingType = e.window.anychart.RenderingType.SVG_ONLY;
+			if(ch) {
+				//Clean before and after to make it work. Don't ask me why.
+				ch.remove();
+				chart.clean();
 			}
+
+			ch = new e.window.AnyChart("chart");
+
+			ch.setData(configs[e.job]);
+			ch.write('chart');
 
 			callback();
 
@@ -37,7 +39,7 @@ fs.readdir('xml', function(err, files) {
 			var job = file.replace(/\.\w+$/, '');
 
 			configs[job] = xml.toString();
-			if(!err) {
+			if(!err && job) {
 				chart.create(job, {width: 500});
 			}
 		});
