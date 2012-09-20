@@ -3,7 +3,7 @@ var chart = require("../../lib/node-svgchart")
 
 
 chart
-	.require(["raphael.js", "g.raphael.js", "g.bar.js", "g.pie.js", "g.dot.js"])
+	.require(["lib/raphael.js", "lib/g.raphael.js", "lib/g.bar.js", "lib/g.pie.js", "lib/g.dot.js"])
 	.on("svg", function(e) {
 		fs.writeFile("svg/" + e.job + ".svg", e.svg);
 	})

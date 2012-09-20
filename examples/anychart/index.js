@@ -10,7 +10,7 @@ fs.readdir('xml', function(err, files) {
 	var ch = null;
 
 	chart
-		.require(["AnyChart.js", "AnyChartHTML5.js"])
+		.require(["lib/AnyChart.js", "lib/AnyChartHTML5.js"])
 		.setup(function(e, callback) {
 			if(!ch) {
 				e.window.AnyChart.renderingType = e.window.anychart.RenderingType.SVG_ONLY;
