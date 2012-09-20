@@ -13,9 +13,10 @@ To get it up and running, there are some requirements to fulfill.
 Compatibility
 =============
 * AnyChart 6.0.10
-* gRaphaël (somewhat)
+* gRaphaël
 * ico
 * Highcharts (somewhat, be sure to disable animations)
+* amCharts
 
 Usage
 =====
