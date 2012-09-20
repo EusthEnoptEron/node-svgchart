@@ -210,7 +210,6 @@ var Ico = {
     },
     
     set_defaults: function() {
-      console.log("!!!!!!!" + this.element.offsetWidth);
       this.options = {
         // Canvas dimensions
         width:                parseInt( this.element.offsetWidth ) -1,

@@ -75,7 +75,6 @@ chart
 
 	var every_other_month = months.map( function( m, i ) { if ( i % 2 ) return m } );
 
-	console.log(months);
 	new this.Ico.BarGraph( "chart",
 		[ [31, 5, 1, -5, 15, 33, 20, 25, 1, 12, 25, -3],
 		[18, -1, -7, 17, 15, 21, 1, 25, 3, 21, 16, 4]

@@ -5,7 +5,6 @@ var configs = {};
 
 fs.readdir('xml', function(err, files) {
 	if(err) {
-		console.log("Something went wrong.", err);
 		return;
 	}
 	var ch = null;
@@ -27,7 +26,6 @@ fs.readdir('xml', function(err, files) {
 
 		})
 		.on("svg", function(e) {
-			console.log(e.svg.length);
 			fs.writeFile("svg/" + e.job + ".svg", e.svg);
 		})
 		.on("image", function(e) {
