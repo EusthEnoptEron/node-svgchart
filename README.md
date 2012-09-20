@@ -38,6 +38,32 @@ chart
     });
 ```
 
+
+Examples
+========
+[ico](https://github.com/uiteoi/ico)
+---
+![Ico line chart](http://zomg.ch/node/line.png)
+
+[amCharts](http://amcharts.com/)
+--------
+![amCharts OHLC chart](http://zomg.ch/node/ohlc.png)
+
+[gRaphaël](http://g.raphaeljs.com/)
+--------
+![gRaphaël bar chart](http://zomg.ch/node/bar.png)
+
+[Highcharts](http://www.highcharts.com/)
+----------
+![Highcharts area chart](http://zomg.ch/node/area.png)
+
+[AnyChart](http://www.anychart.com/)
+---------
+![AnyChart scatter chart](http://zomg.ch/node/scatter.png)
+
+
+
+------
 API
 ===
 
@@ -46,3 +72,4 @@ setSafeMode(bool on)
 Turn safe mode on / off. If safe mode is off, the script code of your libraries will be rewritten to refrain from using "instanceof Array" because of context issues.
 
 If that causes problems, you can disable that behavior. However, you will then have to use "window.Array" to create your arrays.
+
