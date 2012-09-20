@@ -10996,6 +10996,7 @@ Chart.prototype = {
 	},
 
 	init: function (chartEvents) {
+
 		var chart = this,
 			optionsChart = chart.options.chart,
 			eventType;
