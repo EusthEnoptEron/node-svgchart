@@ -14,7 +14,7 @@ Compatibility
 =============
 * AnyChart 6.0.10
 * gRaphaël (somewhat)
-* ico (somewhat)
+* ico
 * Highcharts (somewhat, be sure to disable animations)
 
 Usage
