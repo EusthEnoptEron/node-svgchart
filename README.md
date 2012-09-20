@@ -2,12 +2,12 @@ Introduction
 ============
 node-svgchart aims to provide a general interface to generate charts on the server side without any need for an x-server or anything of the like.
 
-It's useful if you want to put dynamic charts on the frontend, yet play with them on the backend. E.g. to create reports, to let users with outdated browsers download it, etc.
+You might find it useful for generating reports if you want to use the exact same charts on the frontend, or for supporting old browsers. If you're in an environment that *does* support a graphical interface (GUI), however, then you should probably consider simply screen-capturing the charts, using something like CutyCapt or wkhtmltopdf.
 
 Requirements
 ============
-To get it up and running, there are some requirements to fulfill.
-
+To get it up and running, you will need:
+* Node.js
 * ImageMagick
 
 Compatibility
@@ -28,9 +28,10 @@ chart
     .setup(function(e, callback) {
     	//Setup chart using your library. Write to #chart.
     	//Note: The global object is still "global", so explicitly access "e.window".
+        //      -> this = e.window
         //IMPORTANT: You have to call the callback to make it continue. 
     })
-    .create({
+    .create("myIdentifier", {
     	//Options that will be passed to rsvg
     	width: 500
     }, function(err, image) {
