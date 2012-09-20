@@ -25,6 +25,7 @@ var min_max = min = max = serie4 = null;
 
 chart
 .require(["lib/raphael-2.0.1.js", "lib/ico.js"])
+.setAutoClean(false)
 .on("svg", function(e) {
 	fs.writeFile("svg/" + e.job + ".svg", e.svg);
 })
