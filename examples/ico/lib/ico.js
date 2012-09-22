@@ -234,7 +234,7 @@ var Ico = {
       var that = this;
       
       if ( options ) Ico.extend( this.options, options );
-      
+  
       // Set min and max if overriden
       if ( typeof( this.options.min ) != 'undefined' ) this.min = Math.min( this.min, this.options.min ); 
       if ( typeof( this.options.max ) != 'undefined' ) this.max = Math.max( this.max, this.options.max );
@@ -251,7 +251,7 @@ var Ico = {
       this.y_direction = this.orientation? -1 : 1;
       // this.graph.x => labels axis; this.graph.y => value labels axis
       this.graph = this.orientation? { x: this.y, y: this.x } : { x: this.x, y: this.y };
-        
+         
       // Scan components and process their options
       this.components = [];
       for ( var k in Ico.Component.components ) {
@@ -588,7 +588,7 @@ var Ico = {
       var that = this, min_max = Ico.adjust_min_max( this.min, this.max );
       this.min = min_max[0];
       this.max = min_max[1];
-      
+
       // !! process superclass options after min and max adjustments
       Ico.Base.prototype.process_options.call( this, options );
       
@@ -1067,9 +1067,9 @@ var Ico = {
       var that = this, max = this.p.max, min = this.p.min, range = max - min,
           spaces = this.options.spaces,
           params;
-      
       this.p.calculate_graph_len( this.graph.y );
       if ( ! spaces ) {
+
         // Calculate minimal step between labels
         var angle = Math.abs( this.options.angle ), min_step;
         if ( ( this.orientation && angle < 30 ) || ( !this.orientation && angle > 60 ) ) {
@@ -1130,6 +1130,7 @@ var Ico = {
     },
     
     calculate_value_labels_params : function ( min, max, range, spaces ) {
+
       if ( min < 0 && max > 0 ) {
         var spaces_above_zero = Math.round( spaces * max / range );
         if ( spaces_above_zero == 0 ) {
