@@ -39,8 +39,13 @@ chart
     });
 ```
 
+Installation
+============
+1. Download files from github.
+2. Extract files into a folder.
+3. Go there and run `npm install`.
 
-Examples
+Pictures
 ========
 [ico](https://github.com/uiteoi/ico)
 ---
@@ -63,6 +68,15 @@ Examples
 ![AnyChart scatter chart](http://zomg.ch/node/scatter.png)
 
 
+
+Todos
+=====
+- Proper unit tests
+- Proper SVG implementation (long term)
+    - All the values should be SVGLengths, etc.
+- More examples
+- Documentation
+- More supported libraries
 
 ------
 API
