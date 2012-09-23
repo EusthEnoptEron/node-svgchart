@@ -62,7 +62,7 @@ Pictures
 
 [Highcharts](http://www.highcharts.com/)
 ----------
-![Highcharts area chart](http://zomg.ch/node/area.png)
+![Highcharts area chart](http://zomg.ch/node/pie.png)
 
 [AnyChart](http://www.anychart.com/)
 ---------
