@@ -19,5 +19,6 @@
 		"node": "0.8.9"
 	},
 	"main": "./lib/node-svgchart",
-	"directories": ["./lib"]
+	"directories": ["./lib"],
+	"license": "MIT"
 }
